@@ -50,27 +50,29 @@ class ViewController: UIViewController {
     
     
     @IBAction func cityEditButtonClicked(_ sender: UIButton) {
-        let ac = UIAlertController(title: "Input your city", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Enter new value", message: nil, preferredStyle: .alert)
         ac.addTextField { (textField) in
-            textField.text = self.cityLabel.text
+            textField.placeholder = "City"
         }
-        let submitAction = UIAlertAction(title: "Save", style: .default) { [unowned ac] _ in
+        let submitAction = UIAlertAction(title: "Done", style: .default) { [unowned ac] _ in
             let answer = ac.textFields![0]
             self.applyEditsToCity(text: answer.text!)
         }
+        ac.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .default))
         ac.addAction(submitAction)
         present(ac, animated: true)
     }
     
     @IBAction func universityEditButtonClicked(_ sender: UIButton) {
-        let ac = UIAlertController(title: "Input your institution", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Enter new value", message: nil, preferredStyle: .alert)
         ac.addTextField { (textField) in
-            textField.text = self.universityLabel.text
+            textField.placeholder = "University"
         }
-        let submitAction = UIAlertAction(title: "Save", style: .default) { [unowned ac] _ in
+        let submitAction = UIAlertAction(title: "Done", style: .default) { [unowned ac] _ in
             let answer = ac.textFields![0]
             self.applyEditsToUniversity(text: answer.text!)
         }
+        ac.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .default))
         ac.addAction(submitAction)
         present(ac, animated: true)
     }
